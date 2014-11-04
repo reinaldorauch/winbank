@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, ComCtrls, ToolWin, ActnList, ImgList, Grids, DBGrids, StdCtrls,
-  DBCtrls;
+  DBCtrls, Mask, ExtCtrls;
 
 type
   TFmPrinc = class(TForm)
@@ -65,11 +65,43 @@ type
     Label1: TLabel;
     Label2: TLabel;
     BtnBusca: TButton;
-    DtpInicio: TDateTimePicker;
-    DtpFim: TDateTimePicker;
+    DtpEmissaoInicio: TDateTimePicker;
+    DtpEmissaoFim: TDateTimePicker;
     Label3: TLabel;
     Label4: TLabel;
-    DblbBancos: TDBListBox;
+    DblcbBanco: TDBLookupComboBox;
+    EdNome: TEdit;
+    Label5: TLabel;
+    EdCnpj: TEdit;
+    Label6: TLabel;
+    EdConta: TEdit;
+    Label7: TLabel;
+    EdNumChequeInicio: TEdit;
+    Label9: TLabel;
+    EdNumChequeFim: TEdit;
+    Label10: TLabel;
+    EdValorInicio: TEdit;
+    EdValorFim: TEdit;
+    Label11: TLabel;
+    Label12: TLabel;
+    EdAlinea: TEdit;
+    Label13: TLabel;
+    DtpDPagInicio: TDateTimePicker;
+    DtpDPagFim: TDateTimePicker;
+    Label14: TLabel;
+    Label15: TLabel;
+    EdJurosPagosInicio: TEdit;
+    EdJurosPagosFim: TEdit;
+    Label16: TLabel;
+    Label17: TLabel;
+    EdValorPagoInicio: TEdit;
+    EdValorPagoFim: TEdit;
+    Label8: TLabel;
+    Label18: TLabel;
+    PFilters: TPanel;
+    CbEmissao: TCheckBox;
+    CbPagamento: TCheckBox;
+    RadioGroup1: TRadioGroup;
     procedure AcExitExecute(Sender: TObject);
     procedure AcCreateClientExecute(Sender: TObject);
     procedure AcEditClientExecute(Sender: TObject);
@@ -79,6 +111,7 @@ type
     procedure AcDeleteBankExecute(Sender: TObject);
     procedure AcOpenChequesExecute(Sender: TObject);
     procedure AcBuscarExecute(Sender: TObject);
+    procedure CbEmissaoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -117,15 +150,14 @@ begin
     Sql.Add('BANCOS ban ');
     Sql.Add('WHERE che.cnpj = cli.cnpj AND che.banco = ban.codigo ');
 
-    Sql.Add('AND che.emissao BETWEEN :DtInicio AND :DtFim');
+    // Wheres vindos do filtro
 
-    //if EdBanco.Text <> '' then
-      //Sql.Add('AND che.banco = ' + EdBanco.Text + ' ');
+    Sql.Add('AND che.emissao BETWEEN :DtInicio AND :DtFim');
 
     Sql.Add('ORDER BY emissao');
 
-    ParamByName('DtInicio').AsDate := DtpInicio.Date;
-    ParamByName('DtFim').AsDate := DtpFim.Date;
+    ParamByName('DtInicio').AsDate := DtpEmissaoInicio.Date;
+    ParamByName('DtFim').AsDate := DtpEmissaoFim.Date;
 
     Active := True;
 
@@ -237,6 +269,12 @@ begin
     ShowModal;
   end;
 
+end;
+
+procedure TFmPrinc.CbEmissaoClick(Sender: TObject);
+begin
+  DtpEmissaoInicio.Enabled := CbEmissao.Checked;
+  DtpEmissaoFim.Enabled := CbEmissao.Checked;
 end;
 
 end.

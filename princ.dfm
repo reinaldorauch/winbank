@@ -2,8 +2,8 @@ object FmPrinc: TFmPrinc
   Left = 0
   Top = 0
   Caption = 'Winbank'
-  ClientHeight = 364
-  ClientWidth = 773
+  ClientHeight = 439
+  ClientWidth = 787
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,19 +12,18 @@ object FmPrinc: TFmPrinc
   Font.Style = []
   Menu = MainMenu
   OldCreateOrder = False
-  DesignSize = (
-    773
-    364)
   PixelsPerInch = 96
   TextHeight = 13
   object PageControl: TPageControl
-    Left = 8
-    Top = 8
-    Width = 757
-    Height = 348
+    Left = 0
+    Top = 0
+    Width = 787
+    Height = 439
     ActivePage = TsConsCheques
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    Align = alClient
     TabOrder = 0
+    ExplicitLeft = 8
+    ExplicitTop = 8
     ExplicitWidth = 619
     ExplicitHeight = 284
     object TsClientes: TTabSheet
@@ -33,17 +32,17 @@ object FmPrinc: TFmPrinc
       ExplicitWidth = 611
       ExplicitHeight = 256
       DesignSize = (
-        749
-        320)
+        779
+        411)
       object TbClientes: TToolBar
         Left = 0
         Top = 0
-        Width = 749
+        Width = 779
         Height = 29
         Caption = 'TbClientes'
         Images = IlPrinc
         TabOrder = 0
-        ExplicitWidth = 611
+        ExplicitWidth = 749
         object ToolButton1: TToolButton
           Left = 0
           Top = 0
@@ -76,8 +75,8 @@ object FmPrinc: TFmPrinc
       object DbgClientes: TDBGrid
         Left = 3
         Top = 35
-        Width = 743
-        Height = 282
+        Width = 773
+        Height = 373
         Anchors = [akLeft, akTop, akRight, akBottom]
         DataSource = DmWinBank.DsClientes
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -117,17 +116,17 @@ object FmPrinc: TFmPrinc
       ExplicitWidth = 611
       ExplicitHeight = 256
       DesignSize = (
-        749
-        320)
+        779
+        411)
       object TbBancos: TToolBar
         Left = 0
         Top = 0
-        Width = 749
+        Width = 779
         Height = 29
         Caption = 'TbBancos'
         Images = IlPrinc
         TabOrder = 0
-        ExplicitWidth = 611
+        ExplicitWidth = 749
         object ToolButton4: TToolButton
           Left = 0
           Top = 0
@@ -147,8 +146,8 @@ object FmPrinc: TFmPrinc
       object DbgBancos: TDBGrid
         Left = 3
         Top = 35
-        Width = 743
-        Height = 282
+        Width = 773
+        Height = 373
         Anchors = [akLeft, akTop, akRight, akBottom]
         DataSource = DmWinBank.DsBancos
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -179,40 +178,16 @@ object FmPrinc: TFmPrinc
       Caption = 'Consulta Cheques'
       ImageIndex = 2
       ExplicitLeft = 0
-      object Label1: TLabel
-        Left = 3
-        Top = 3
-        Width = 29
-        Height = 13
-        Caption = 'Banco'
-      end
-      object Label2: TLabel
-        Left = 131
-        Top = 3
-        Width = 38
-        Height = 13
-        Caption = 'Ag'#234'ncia'
-      end
-      object Label3: TLabel
-        Left = 258
-        Top = 3
-        Width = 114
-        Height = 13
-        Caption = 'In'#237'cio - Data de Emiss'#227'o'
-      end
-      object Label4: TLabel
-        Left = 258
-        Top = 49
-        Width = 105
-        Height = 13
-        Caption = 'Fim - Data de Emiss'#227'o'
-      end
+      ExplicitTop = 32
+      ExplicitWidth = 763
+      ExplicitHeight = 383
       object DbgConsCheques: TDBGrid
         Left = 0
-        Top = 104
-        Width = 749
-        Height = 216
+        Top = 191
+        Width = 779
+        Height = 220
         Align = alBottom
+        Anchors = [akLeft, akTop, akRight, akBottom]
         DataSource = DmWinBank.DsConsulta
         Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
         ReadOnly = True
@@ -227,6 +202,7 @@ object FmPrinc: TFmPrinc
             Expanded = False
             FieldName = 'NOMECLIENTE'
             Title.Caption = 'Cliente'
+            Width = 194
             Visible = True
           end
           item
@@ -239,6 +215,7 @@ object FmPrinc: TFmPrinc
             Expanded = False
             FieldName = 'NOMEBANCO'
             Title.Caption = 'Banco'
+            Width = 249
             Visible = True
           end
           item
@@ -302,52 +279,334 @@ object FmPrinc: TFmPrinc
             Visible = True
           end>
       end
-      object EdAgencia: TEdit
-        Left = 131
-        Top = 22
-        Width = 121
-        Height = 21
+      object PFilters: TPanel
+        Left = 0
+        Top = 0
+        Width = 779
+        Height = 185
+        Align = alTop
+        Padding.Left = 10
+        Padding.Top = 10
+        Padding.Right = 10
+        Padding.Bottom = 10
         TabOrder = 1
-      end
-      object BtnBusca: TButton
-        Left = 671
-        Top = 20
-        Width = 75
-        Height = 25
-        Hint = 'Buscar'
-        Caption = 'Buscar'
-        TabOrder = 2
-        OnClick = AcBuscarExecute
-      end
-      object DtpInicio: TDateTimePicker
-        Left = 258
-        Top = 22
-        Width = 113
-        Height = 21
-        Date = 41934.903639953710000000
-        Time = 41934.903639953710000000
-        TabOrder = 3
-      end
-      object DtpFim: TDateTimePicker
-        Left = 258
-        Top = 68
-        Width = 113
-        Height = 21
-        Date = 41934.903793020840000000
-        Time = 41934.903793020840000000
-        TabOrder = 4
+        object Label8: TLabel
+          Left = 645
+          Top = 53
+          Width = 91
+          Height = 13
+          Caption = 'In'#237'cio - Valor Pagos'
+        end
+        object Label18: TLabel
+          Left = 645
+          Top = 99
+          Width = 82
+          Height = 13
+          Caption = 'Fim - Valor pagos'
+        end
+        object Label6: TLabel
+          Left = 136
+          Top = 7
+          Width = 99
+          Height = 13
+          Caption = 'CPF/CNPJ do Cliente'
+        end
+        object Label14: TLabel
+          Left = 391
+          Top = 53
+          Width = 118
+          Height = 13
+          Caption = 'In'#237'cio - D. de Pagamento'
+        end
+        object Label4: TLabel
+          Left = 263
+          Top = 99
+          Width = 105
+          Height = 13
+          Caption = 'Fim - Data de Emiss'#227'o'
+        end
+        object Label1: TLabel
+          Left = 263
+          Top = 7
+          Width = 29
+          Height = 13
+          Caption = 'Banco'
+        end
+        object Label10: TLabel
+          Left = 9
+          Top = 99
+          Width = 118
+          Height = 13
+          Caption = 'N'#250'mero do Cheque - Fim'
+        end
+        object Label11: TLabel
+          Left = 136
+          Top = 99
+          Width = 50
+          Height = 13
+          Caption = 'Valor - Fim'
+        end
+        object Label12: TLabel
+          Left = 136
+          Top = 53
+          Width = 59
+          Height = 13
+          Caption = 'Valor - In'#237'cio'
+        end
+        object Label13: TLabel
+          Left = 644
+          Top = 7
+          Width = 29
+          Height = 13
+          Caption = 'Al'#237'nea'
+        end
+        object Label15: TLabel
+          Left = 390
+          Top = 99
+          Width = 109
+          Height = 13
+          Caption = 'Fim - D. de Pagamento'
+        end
+        object Label16: TLabel
+          Left = 518
+          Top = 53
+          Width = 93
+          Height = 13
+          Caption = 'In'#237'cio - Juros Pagos'
+        end
+        object Label17: TLabel
+          Left = 518
+          Top = 99
+          Width = 84
+          Height = 13
+          Caption = 'Fim - Juros pagos'
+        end
+        object Label2: TLabel
+          Left = 390
+          Top = 7
+          Width = 38
+          Height = 13
+          Caption = 'Ag'#234'ncia'
+        end
+        object Label3: TLabel
+          Left = 263
+          Top = 53
+          Width = 114
+          Height = 13
+          Caption = 'In'#237'cio - Data de Emiss'#227'o'
+        end
+        object Label5: TLabel
+          Left = 9
+          Top = 7
+          Width = 78
+          Height = 13
+          Caption = 'Nome do Cliente'
+        end
+        object Label7: TLabel
+          Left = 517
+          Top = 7
+          Width = 29
+          Height = 13
+          Caption = 'Conta'
+        end
+        object Label9: TLabel
+          Left = 9
+          Top = 53
+          Width = 90
+          Height = 13
+          Caption = 'N'#250'mero do cheque'
+        end
+        object EdValorPagoInicio: TEdit
+          Left = 644
+          Top = 72
+          Width = 121
+          Height = 21
+          TabOrder = 0
+        end
+        object EdValorPagoFim: TEdit
+          Left = 645
+          Top = 116
+          Width = 121
+          Height = 21
+          TabOrder = 1
+        end
+        object EdAlinea: TEdit
+          Left = 644
+          Top = 26
+          Width = 121
+          Height = 21
+          TabOrder = 2
+        end
+        object EdNumChequeInicio: TEdit
+          Left = 9
+          Top = 72
+          Width = 121
+          Height = 21
+          NumbersOnly = True
+          TabOrder = 3
+        end
+        object DtpEmissaoInicio: TDateTimePicker
+          Left = 263
+          Top = 72
+          Width = 121
+          Height = 21
+          Date = 0.903639953707170200
+          Time = 0.903639953707170200
+          Enabled = False
+          TabOrder = 4
+        end
+        object DblcbBanco: TDBLookupComboBox
+          Left = 263
+          Top = 26
+          Width = 121
+          Height = 21
+          KeyField = 'CODIGO'
+          ListField = 'NOME'
+          ListSource = DmWinBank.DsBancos
+          TabOrder = 5
+        end
+        object DtpDPagFim: TDateTimePicker
+          Left = 390
+          Top = 116
+          Width = 121
+          Height = 21
+          Date = 41947.623187581020000000
+          Time = 41947.623187581020000000
+          Enabled = False
+          TabOrder = 6
+        end
+        object DtpDPagInicio: TDateTimePicker
+          Left = 390
+          Top = 72
+          Width = 121
+          Height = 21
+          Date = 41947.623187581020000000
+          Time = 41947.623187581020000000
+          Enabled = False
+          TabOrder = 7
+        end
+        object DtpEmissaoFim: TDateTimePicker
+          Left = 263
+          Top = 118
+          Width = 121
+          Height = 21
+          Date = 41934.903793020840000000
+          Time = 41934.903793020840000000
+          Enabled = False
+          TabOrder = 8
+        end
+        object EdAgencia: TEdit
+          Left = 390
+          Top = 26
+          Width = 121
+          Height = 21
+          NumbersOnly = True
+          TabOrder = 9
+        end
+        object EdCnpj: TEdit
+          Left = 136
+          Top = 26
+          Width = 121
+          Height = 21
+          NumbersOnly = True
+          TabOrder = 10
+        end
+        object EdConta: TEdit
+          Left = 517
+          Top = 26
+          Width = 121
+          Height = 21
+          NumbersOnly = True
+          TabOrder = 11
+        end
+        object EdJurosPagosFim: TEdit
+          Left = 517
+          Top = 116
+          Width = 121
+          Height = 21
+          TabOrder = 12
+        end
+        object EdJurosPagosInicio: TEdit
+          Left = 517
+          Top = 72
+          Width = 121
+          Height = 21
+          TabOrder = 13
+        end
+        object EdNome: TEdit
+          Left = 9
+          Top = 26
+          Width = 121
+          Height = 21
+          TabOrder = 14
+        end
+        object EdNumChequeFim: TEdit
+          Left = 9
+          Top = 118
+          Width = 121
+          Height = 21
+          NumbersOnly = True
+          TabOrder = 15
+        end
+        object EdValorFim: TEdit
+          Left = 136
+          Top = 118
+          Width = 121
+          Height = 21
+          NumbersOnly = True
+          TabOrder = 16
+        end
+        object EdValorInicio: TEdit
+          Left = 136
+          Top = 72
+          Width = 121
+          Height = 21
+          NumbersOnly = True
+          TabOrder = 17
+        end
+        object BtnBusca: TButton
+          Left = 691
+          Top = 143
+          Width = 75
+          Height = 25
+          Hint = 'Buscar'
+          Caption = 'Buscar'
+          TabOrder = 18
+          OnClick = AcBuscarExecute
+        end
+        object CbEmissao: TCheckBox
+          Left = 263
+          Top = 145
+          Width = 121
+          Height = 17
+          Caption = 'Filtrar por Emiss'#227'o'
+          TabOrder = 19
+          OnClick = CbEmissaoClick
+        end
+        object CbPagamento: TCheckBox
+          Left = 390
+          Top = 145
+          Width = 121
+          Height = 17
+          Caption = 'Filtrar por Pagamento'
+          TabOrder = 20
+        end
+        object RadioGroup1: TRadioGroup
+          Left = 9
+          Top = 143
+          Width = 249
+          Height = 34
+          Caption = 'Cheques:'
+          Columns = 3
+          ItemIndex = 0
+          Items.Strings = (
+            'Todos'
+            'Pagos'
+            'N'#227'o Pagos')
+          TabOrder = 21
+        end
       end
     end
-  end
-  object DblbBancos: TDBListBox
-    Left = 15
-    Top = 54
-    Width = 121
-    Height = 76
-    DataField = 'NOME'
-    DataSource = DmWinBank.DsBancos
-    ItemHeight = 13
-    TabOrder = 1
   end
   object MainMenu: TMainMenu
     Images = IlPrinc

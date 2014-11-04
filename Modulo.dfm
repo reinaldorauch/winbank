@@ -88,6 +88,7 @@ object DmWinBank: TDmWinBank
   object IbtBancos: TIBTable
     Database = IdbWinbank
     Transaction = IbtWbTrans
+    ForcedRefresh = True
     Active = True
     FieldDefs = <
       item

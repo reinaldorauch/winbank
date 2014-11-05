@@ -38,10 +38,15 @@ type
     N2: TMenuItem;
     AcEstornar2: TMenuItem;
     AcEstornar3: TMenuItem;
+    ToolButton7: TToolButton;
+    AcQuitarUpdate: TAction;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure AcCreateExecute(Sender: TObject);
     procedure AcEditExecute(Sender: TObject);
     procedure AcDeleteExecute(Sender: TObject);
+    procedure AcQuitarExecute(Sender: TObject);
+    procedure AcEstornarExecute(Sender: TObject);
+    procedure AcQuitarUpdateExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -53,10 +58,12 @@ var
 
 implementation
 
-uses Modulo, CreateCheque;
+uses Modulo, CreateCheque, BaixaCheque, BaixaChequeUpdate;
 
 var
   FmCreateCheque: TFmCreateCheque;
+  FmBaixaCheque: TFmBaixaCheque;
+  FmBaixaChequeUpdate: TFmBaixaChequeUpdate;
 
 {$R *.dfm}
 
@@ -106,6 +113,60 @@ begin
     Caption := 'Editar cheque';
     ShowModal;
   end;
+end;
+
+procedure TFmCheques.AcEstornarExecute(Sender: TObject);
+begin
+  with DmWinBank do
+    if NOT IbtChequesDATAPGTO.IsNull then
+      begin
+        if mrYes = MessageDlg('Tem certeza que deseja extornar o cheque?', mtConfirmation, [mbYes,mbNo], 0) then
+          begin
+            IbtCheques.Edit;
+            IbtChequesDATAPGTO.AsString := '';
+            IbtChequesJUROSPAGOS.AsString := '';
+            try
+              IbtCheques.Post;
+            except
+              on E: Exception do
+              begin
+                ShowMessage('Erro no banco de dados: ' + #13 + e.Message);
+              end;
+            end;
+          end
+      end
+    else
+      ShowMessage('Este cheque não está pago para poder ser extornado, tente novamente');
+end;
+
+procedure TFmCheques.AcQuitarExecute(Sender: TObject);
+begin
+  with DmWinBank do
+    if IbtChequesDATAPGTO.IsNull then
+      begin
+        FmBaixaCheque := TFmBaixaCheque.Create(Self);
+
+        with FmBaixaCheque do
+        begin
+          IbtCheques.Edit;
+          ShowModal;
+        end;
+      end
+    else
+      ShowMessage('Este cheque já foi pago. Extorne-o e tente novamente');
+end;
+
+procedure TFmCheques.AcQuitarUpdateExecute(Sender: TObject);
+begin
+  with DmWinBank do
+    if IbtChequesDATAPGTO.IsNull then
+      begin
+        FmBaixaChequeUpdate := TFmBaixaChequeUpdate.Create(Self);
+
+        FmBaixaChequeUpdate.ShowModal;
+      end
+    else
+      ShowMessage('Este cheque já foi pago. Extorne-o e tente novamente');
 end;
 
 procedure TFmCheques.FormClose(Sender: TObject; var Action: TCloseAction);

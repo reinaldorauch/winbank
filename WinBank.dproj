@@ -68,6 +68,12 @@
 			<DCCReference Include="CreateCheque.pas">
 				<Form>FmCreateCheque</Form>
 			</DCCReference>
+			<DCCReference Include="BaixaCheque.pas">
+				<Form>FmBaixaCheque</Form>
+			</DCCReference>
+			<DCCReference Include="BaixaChequeUpdate.pas">
+				<Form>FmBaixaChequeUpdate</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

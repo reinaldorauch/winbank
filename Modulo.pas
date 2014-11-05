@@ -54,6 +54,7 @@ type
     IbqConsultaDATAPGTO: TDateField;
     IbqConsultaJUROSPAGOS: TFloatField;
     IbqConsultaVALORPAGO: TFloatField;
+    IbqChequeUpdate: TIBQuery;
     procedure IbtChequesCalcFields(DataSet: TDataSet);
   private
     { Private declarations }

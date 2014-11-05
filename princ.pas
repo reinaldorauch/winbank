@@ -76,11 +76,8 @@ type
     Label6: TLabel;
     EdConta: TEdit;
     Label7: TLabel;
-    EdNumChequeInicio: TEdit;
+    EdNumCheque: TEdit;
     Label9: TLabel;
-    EdNumChequeFim: TEdit;
-    Label10: TLabel;
-    EdValorInicio: TEdit;
     EdValorFim: TEdit;
     Label11: TLabel;
     Label12: TLabel;
@@ -101,7 +98,8 @@ type
     PFilters: TPanel;
     CbEmissao: TCheckBox;
     CbPagamento: TCheckBox;
-    RadioGroup1: TRadioGroup;
+    RgStatus: TRadioGroup;
+    EdValorInicio: TEdit;
     procedure AcExitExecute(Sender: TObject);
     procedure AcCreateClientExecute(Sender: TObject);
     procedure AcEditClientExecute(Sender: TObject);
@@ -112,6 +110,7 @@ type
     procedure AcOpenChequesExecute(Sender: TObject);
     procedure AcBuscarExecute(Sender: TObject);
     procedure CbEmissaoClick(Sender: TObject);
+    procedure CbPagamentoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -152,15 +151,102 @@ begin
 
     // Wheres vindos do filtro
 
-    Sql.Add('AND che.emissao BETWEEN :DtInicio AND :DtFim');
+    // Nome do cliente
+    if Trim(EdNome.Text) <> '' then
+      Sql.Add('AND cli.nome LIKE ''%' + UpperCase(Trim(EdNome.Text)) + '%'' ');
 
+    // CPF/CNPJ do cliente
+    if Trim(EdCnpj.Text) <> '' then
+      Sql.Add('AND cli.cnpj LIKE ''%' + UpperCase(Trim(EdCnpj.Text)) + '%'' ');
+
+    // Código do Banco
+    if Trim(DblcbBanco.Text) <> '' then
+      Sql.Add('AND che.banco = ' + Trim(DblcbBanco.Text) + ' ');
+
+    // Agência
+    if Trim(EdAgencia.Text) <> '' then
+      Sql.Add('AND che.agencia = ' + Trim(EdAgencia.Text) + ' ');
+
+    // Conta
+    if Trim(EdConta.Text) <> '' then
+      Sql.Add('AND che.conta = ' + Trim(EdConta.Text) + ' ');
+
+    // Alínea
+    if Trim(EdAlinea.Text) <> '' then
+      Sql.Add('AND che.alinea = ' + Trim(EdAlinea.Text) + ' ');
+
+    // Número do Cheque
+    if Trim(EdNumCheque.Text) <> '' then
+      Sql.Add('AND che.numero = ' + Trim(EdNumCheque.Text) + ' ');
+
+    // Valor do cheque
+    if (Trim(EdValorInicio.Text) <> '') AND (Trim(EdValorFim.Text) = '') then
+      begin
+        Sql.Add('AND che.valor = :Valor ');
+        ParamByName('Valor').AsFloat := StrToFloat(EdValorInicio.Text);
+      end
+    else
+      if (Trim(EdValorInicio.Text) <> '') AND (Trim(EdValorFim.Text) <> '') then
+        begin
+          Sql.Add('AND che.valor BETWEEN :ValorInit AND :ValorEnd ');
+          ParamByName('ValorInit').AsFloat := StrToFloat(EdValorInicio.Text);
+          ParamByName('ValorEnd').AsFloat  := StrToFloat(EdValorFim.Text);
+        end;
+    
+    // Juros pagos
+    if (Trim(EdJurosPagosInicio.Text) <> '') AND (Trim(EdJurosPagosFim.Text) = '') then
+      begin
+        Sql.Add('AND che.jurospagos = :JurosPagos ');
+        ParamByName('JurosPagos').AsFloat := StrToFloat(EdJurosPagosInicio.Text);
+      end
+    else
+      if (Trim(EdJurosPagosInicio.Text) <> '') AND (Trim(EdJurosPagosFim.Text) <> '') then
+        begin
+          Sql.Add('AND che.jurospagos BETWEEN :JurPagInit AND :JurPagEnd ');
+          ParamByName('JurPagInit').AsFloat := StrToFloat(EdJurosPagosInicio.Text);
+          ParamByName('JurPagEnd').AsFloat := StrToFloat(EdJurosPagosFim.Text);
+        end;
+
+    // Valor pago
+    if (Trim(EdValorPagoInicio.Text) <> '') AND (Trim(EdValorPagoFim.Text) = '') then
+      begin
+        Sql.Add('AND che.valor + che.jurospagos = :ValorPago ');
+        ParamByName('ValorPago').AsFloat := StrToFloat(EdValorPagoInicio.Text);
+      end
+    else
+      if (Trim(EdValorPagoInicio.Text) <> '') AND (Trim(EdValorPagoFim.Text) <> '') then
+        begin
+          Sql.Add('AND che.valor + che.jurospagos BETWEEN :ValPagInit AND :ValPagEnd ');
+          ParamByName('ValPagInit').AsFloat := StrToFloat(EdValorPagoInicio.Text);
+          ParamByName('ValPagEnd').AsFloat := StrToFloat(EdValorPagoFim.Text);
+        end;
+  
+    // Data de emissão
+    if CbEmissao.Checked then
+    begin
+      Sql.Add('AND che.emissao BETWEEN :DtEmInicio AND :DtEmFim');
+      ParamByName('DtEmInicio').AsDate := DtpEmissaoInicio.Date;
+      ParamByName('DtEmFim').AsDate := DtpEmissaoFim.Date;
+    end;
+
+    // Data de pagamento
+    if CbPagamento.Checked then
+    begin
+      Sql.Add('AND che.datapgto BETWEEN :DtPgtoInicio AND :DtPgtoFim');
+      ParamByName('DtPgtoInicio').AsDate := DtpDPagInicio.Date;
+      ParamByName('DtPgtoFim').AsDate := DtpDPagFim.Date;
+    end;
+
+    if(RgStatus.ItemIndex = 1) then
+      Sql.Add('AND che.datapgto IS NOT NULL')
+    else
+      if(RgStatus.ItemIndex = 2) then
+        Sql.Add('AND che.datapgto IS NULL');
+
+    // Cláusulas após o WHERE
     Sql.Add('ORDER BY emissao');
-
-    ParamByName('DtInicio').AsDate := DtpEmissaoInicio.Date;
-    ParamByName('DtFim').AsDate := DtpEmissaoFim.Date;
-
+    
     Active := True;
-
   end;
 end;
 
@@ -275,6 +361,12 @@ procedure TFmPrinc.CbEmissaoClick(Sender: TObject);
 begin
   DtpEmissaoInicio.Enabled := CbEmissao.Checked;
   DtpEmissaoFim.Enabled := CbEmissao.Checked;
+end;
+
+procedure TFmPrinc.CbPagamentoClick(Sender: TObject);
+begin
+  DtpDPagInicio.Enabled := CbPagamento.Checked;
+  DtpDPagFim.Enabled := CbPagamento.Checked;
 end;
 
 end.

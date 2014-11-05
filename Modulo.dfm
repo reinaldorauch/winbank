@@ -319,7 +319,6 @@ object DmWinBank: TDmWinBank
   object IbqConsulta: TIBQuery
     Database = IdbWinbank
     Transaction = IbtWbTrans
-    Active = True
     SQL.Strings = (
       'SELECT'
       '    cli.nome as nomeCliente,'
@@ -424,5 +423,59 @@ object DmWinBank: TDmWinBank
     DataSet = IbqConsulta
     Left = 424
     Top = 24
+  end
+  object IbqChequeUpdate: TIBQuery
+    Database = IdbWinbank
+    Transaction = IbtWbTrans
+    SQL.Strings = (
+      'UPDATE'
+      #9'CHEQUES'
+      'SET'
+      #9'DATAPGTO = :UpDataPgto,'
+      #9'JUROSPAGOS = :UpJurosPagos'
+      'WHERE'
+      #9'CNPJ = :UpCnpj'
+      #9'AND BANCO = :UpBanco'
+      #9'AND AGENCIA = :UpAgencia'
+      #9'AND CONTA = :UpConta'
+      #9'AND NUMERO = :UpNumero;')
+    Left = 352
+    Top = 80
+    ParamData = <
+      item
+        DataType = ftDate
+        Name = 'UpDataPgto'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftFloat
+        Name = 'UpJurosPagos'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftWideString
+        Name = 'UpCnpj'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftSmallint
+        Name = 'UpBanco'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftSmallint
+        Name = 'UpAgencia'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftSmallint
+        Name = 'UpConta'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftSmallint
+        Name = 'UpNumero'
+        ParamType = ptInput
+      end>
   end
 end

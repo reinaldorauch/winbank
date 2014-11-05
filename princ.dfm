@@ -19,7 +19,7 @@ object FmPrinc: TFmPrinc
     Top = 0
     Width = 787
     Height = 439
-    ActivePage = TsConsCheques
+    ActivePage = TsClientes
     Align = alClient
     TabOrder = 0
     ExplicitLeft = 8
@@ -293,16 +293,16 @@ object FmPrinc: TFmPrinc
         object Label8: TLabel
           Left = 645
           Top = 53
-          Width = 91
+          Width = 86
           Height = 13
-          Caption = 'In'#237'cio - Valor Pagos'
+          Caption = 'In'#237'cio - Valor Pago'
         end
         object Label18: TLabel
           Left = 645
           Top = 99
-          Width = 82
+          Width = 77
           Height = 13
-          Caption = 'Fim - Valor pagos'
+          Caption = 'Fim - Valor pago'
         end
         object Label6: TLabel
           Left = 136
@@ -331,13 +331,6 @@ object FmPrinc: TFmPrinc
           Width = 29
           Height = 13
           Caption = 'Banco'
-        end
-        object Label10: TLabel
-          Left = 9
-          Top = 99
-          Width = 118
-          Height = 13
-          Caption = 'N'#250'mero do Cheque - Fim'
         end
         object Label11: TLabel
           Left = 136
@@ -421,29 +414,29 @@ object FmPrinc: TFmPrinc
           Top = 72
           Width = 121
           Height = 21
-          TabOrder = 0
+          TabOrder = 16
         end
         object EdValorPagoFim: TEdit
           Left = 645
           Top = 116
           Width = 121
           Height = 21
-          TabOrder = 1
+          TabOrder = 17
         end
         object EdAlinea: TEdit
           Left = 644
           Top = 26
           Width = 121
           Height = 21
-          TabOrder = 2
+          TabOrder = 5
         end
-        object EdNumChequeInicio: TEdit
+        object EdNumCheque: TEdit
           Left = 9
           Top = 72
           Width = 121
           Height = 21
           NumbersOnly = True
-          TabOrder = 3
+          TabOrder = 6
         end
         object DtpEmissaoInicio: TDateTimePicker
           Left = 263
@@ -453,7 +446,7 @@ object FmPrinc: TFmPrinc
           Date = 0.903639953707170200
           Time = 0.903639953707170200
           Enabled = False
-          TabOrder = 4
+          TabOrder = 9
         end
         object DblcbBanco: TDBLookupComboBox
           Left = 263
@@ -463,7 +456,7 @@ object FmPrinc: TFmPrinc
           KeyField = 'CODIGO'
           ListField = 'NOME'
           ListSource = DmWinBank.DsBancos
-          TabOrder = 5
+          TabOrder = 2
         end
         object DtpDPagFim: TDateTimePicker
           Left = 390
@@ -473,7 +466,7 @@ object FmPrinc: TFmPrinc
           Date = 41947.623187581020000000
           Time = 41947.623187581020000000
           Enabled = False
-          TabOrder = 6
+          TabOrder = 13
         end
         object DtpDPagInicio: TDateTimePicker
           Left = 390
@@ -483,7 +476,7 @@ object FmPrinc: TFmPrinc
           Date = 41947.623187581020000000
           Time = 41947.623187581020000000
           Enabled = False
-          TabOrder = 7
+          TabOrder = 12
         end
         object DtpEmissaoFim: TDateTimePicker
           Left = 263
@@ -493,7 +486,7 @@ object FmPrinc: TFmPrinc
           Date = 41934.903793020840000000
           Time = 41934.903793020840000000
           Enabled = False
-          TabOrder = 8
+          TabOrder = 10
         end
         object EdAgencia: TEdit
           Left = 390
@@ -501,7 +494,7 @@ object FmPrinc: TFmPrinc
           Width = 121
           Height = 21
           NumbersOnly = True
-          TabOrder = 9
+          TabOrder = 3
         end
         object EdCnpj: TEdit
           Left = 136
@@ -509,7 +502,7 @@ object FmPrinc: TFmPrinc
           Width = 121
           Height = 21
           NumbersOnly = True
-          TabOrder = 10
+          TabOrder = 1
         end
         object EdConta: TEdit
           Left = 517
@@ -517,36 +510,28 @@ object FmPrinc: TFmPrinc
           Width = 121
           Height = 21
           NumbersOnly = True
-          TabOrder = 11
+          TabOrder = 4
         end
         object EdJurosPagosFim: TEdit
           Left = 517
           Top = 116
           Width = 121
           Height = 21
-          TabOrder = 12
+          TabOrder = 15
         end
         object EdJurosPagosInicio: TEdit
           Left = 517
           Top = 72
           Width = 121
           Height = 21
-          TabOrder = 13
+          TabOrder = 14
         end
         object EdNome: TEdit
           Left = 9
           Top = 26
           Width = 121
           Height = 21
-          TabOrder = 14
-        end
-        object EdNumChequeFim: TEdit
-          Left = 9
-          Top = 118
-          Width = 121
-          Height = 21
-          NumbersOnly = True
-          TabOrder = 15
+          TabOrder = 0
         end
         object EdValorFim: TEdit
           Left = 136
@@ -554,15 +539,7 @@ object FmPrinc: TFmPrinc
           Width = 121
           Height = 21
           NumbersOnly = True
-          TabOrder = 16
-        end
-        object EdValorInicio: TEdit
-          Left = 136
-          Top = 72
-          Width = 121
-          Height = 21
-          NumbersOnly = True
-          TabOrder = 17
+          TabOrder = 7
         end
         object BtnBusca: TButton
           Left = 691
@@ -571,7 +548,7 @@ object FmPrinc: TFmPrinc
           Height = 25
           Hint = 'Buscar'
           Caption = 'Buscar'
-          TabOrder = 18
+          TabOrder = 19
           OnClick = AcBuscarExecute
         end
         object CbEmissao: TCheckBox
@@ -580,7 +557,7 @@ object FmPrinc: TFmPrinc
           Width = 121
           Height = 17
           Caption = 'Filtrar por Emiss'#227'o'
-          TabOrder = 19
+          TabOrder = 8
           OnClick = CbEmissaoClick
         end
         object CbPagamento: TCheckBox
@@ -589,9 +566,10 @@ object FmPrinc: TFmPrinc
           Width = 121
           Height = 17
           Caption = 'Filtrar por Pagamento'
-          TabOrder = 20
+          TabOrder = 11
+          OnClick = CbPagamentoClick
         end
-        object RadioGroup1: TRadioGroup
+        object RgStatus: TRadioGroup
           Left = 9
           Top = 143
           Width = 249
@@ -603,7 +581,15 @@ object FmPrinc: TFmPrinc
             'Todos'
             'Pagos'
             'N'#227'o Pagos')
-          TabOrder = 21
+          TabOrder = 18
+        end
+        object EdValorInicio: TEdit
+          Left = 136
+          Top = 72
+          Width = 121
+          Height = 21
+          NumbersOnly = True
+          TabOrder = 20
         end
       end
     end

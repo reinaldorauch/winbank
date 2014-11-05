@@ -114,7 +114,6 @@ object FmCheques: TFmCheques
     Caption = 'ToolBar1'
     Images = ImageList
     TabOrder = 1
-    ExplicitLeft = -7
     object ToolButton1: TToolButton
       Left = 0
       Top = 0
@@ -143,8 +142,13 @@ object FmCheques: TFmCheques
       Top = 0
       Action = AcQuitar
     end
-    object ToolButton6: TToolButton
+    object ToolButton7: TToolButton
       Left = 100
+      Top = 0
+      Action = AcQuitarUpdate
+    end
+    object ToolButton6: TToolButton
+      Left = 123
       Top = 0
       Action = AcEstornar
     end
@@ -224,11 +228,18 @@ object FmCheques: TFmCheques
       Caption = 'Quitar'
       Hint = 'Quitar cheque'
       ImageIndex = 8
+      OnExecute = AcQuitarExecute
     end
     object AcEstornar: TAction
       Caption = 'Estornar'
       Hint = 'Estornar cheque'
       ImageIndex = 6
+      OnExecute = AcEstornarExecute
+    end
+    object AcQuitarUpdate: TAction
+      Caption = 'QuitarUpdate'
+      ImageIndex = 8
+      OnExecute = AcQuitarUpdateExecute
     end
   end
   object ImageList: TImageList

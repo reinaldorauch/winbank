@@ -7,7 +7,9 @@ uses
   Cliente in 'Cliente.pas' {FmClientes},
   Banco in 'Banco.pas' {FmBancos},
   Cheque in 'Cheque.pas' {FmCheques},
-  CreateCheque in 'CreateCheque.pas' {FmCreateCheque};
+  CreateCheque in 'CreateCheque.pas' {FmCreateCheque},
+  BaixaCheque in 'BaixaCheque.pas' {FmBaixaCheque},
+  BaixaChequeUpdate in 'BaixaChequeUpdate.pas' {FmBaixaChequeUpdate};
 
 {$R *.res}
 

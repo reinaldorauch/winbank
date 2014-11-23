@@ -9,7 +9,12 @@ uses
   Cheque in 'Cheque.pas' {FmCheques},
   CreateCheque in 'CreateCheque.pas' {FmCreateCheque},
   BaixaCheque in 'BaixaCheque.pas' {FmBaixaCheque},
-  BaixaChequeUpdate in 'BaixaChequeUpdate.pas' {FmBaixaChequeUpdate};
+  BaixaChequeUpdate in 'BaixaChequeUpdate.pas' {FmBaixaChequeUpdate},
+  DlgReports in 'DlgReports.pas' {FmReports},
+  RelBancos in 'RelBancos.pas' {FmRelBancos},
+  RelClientes in 'RelClientes.pas' {FmRelClientes},
+  RelChequesEmisssao in 'RelChequesEmisssao.pas' {FmRelChequesEmissao},
+  RelChequesPagamentos in 'RelChequesPagamentos.pas' {FmRelChequesPagamentos};
 
 {$R *.res}
 

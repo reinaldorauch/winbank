@@ -74,6 +74,21 @@
 			<DCCReference Include="BaixaChequeUpdate.pas">
 				<Form>FmBaixaChequeUpdate</Form>
 			</DCCReference>
+			<DCCReference Include="DlgReports.pas">
+				<Form>FmReports</Form>
+			</DCCReference>
+			<DCCReference Include="RelBancos.pas">
+				<Form>FmRelBancos</Form>
+			</DCCReference>
+			<DCCReference Include="RelClientes.pas">
+				<Form>FmRelClientes</Form>
+			</DCCReference>
+			<DCCReference Include="RelChequesEmisssao.pas">
+				<Form>FmRelChequesEmissao</Form>
+			</DCCReference>
+			<DCCReference Include="RelChequesPagamentos.pas">
+				<Form>FmRelChequesPagamentos</Form>
+			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

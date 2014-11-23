@@ -23,6 +23,7 @@ type
     AcExit: TAction;
     Sair1: TMenuItem;
     DtpDataPag: TDateTimePicker;
+    DBEdit1: TDBEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure AcCancelExecute(Sender: TObject);
     procedure AcPostExecute(Sender: TObject);
@@ -76,7 +77,7 @@ procedure TFmBaixaCheque.DbeJurosPagosExit(Sender: TObject);
 begin
   try
     JurosPagosOk := (Length(DbeJurosPagos.Text) > 0) AND
-      (StrToFloat(DbeJurosPagos.Text) > 0);
+      (StrToFloat(DbeJurosPagos.Text) >= 0);
   except
     on e: EConvertError do
       JurosPagosOk := False;

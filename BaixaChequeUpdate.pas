@@ -99,7 +99,7 @@ procedure TFmBaixaChequeUpdate.DbeJurosPagosExit(Sender: TObject);
 begin
   try
     JurosPagosOk := (Length(EdJurosPagos.Text) > 0) AND
-      (StrToFloat(EdJurosPagos.Text) > 0);
+      (StrToFloat(EdJurosPagos.Text) >= 0);
   except
     on e: EConvertError do
       JurosPagosOk := False;

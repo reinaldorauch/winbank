@@ -47,7 +47,7 @@ object FmBaixaChequeUpdate: TFmBaixaChequeUpdate
     Width = 75
     Height = 25
     Action = AcCancel
-    TabOrder = 1
+    TabOrder = 2
   end
   object BtnPost: TButton
     Left = 246
@@ -55,7 +55,7 @@ object FmBaixaChequeUpdate: TFmBaixaChequeUpdate
     Width = 75
     Height = 25
     Action = AcPost
-    TabOrder = 2
+    TabOrder = 3
   end
   object EdJurosPagos: TEdit
     Left = 200
@@ -63,7 +63,7 @@ object FmBaixaChequeUpdate: TFmBaixaChequeUpdate
     Width = 121
     Height = 21
     NumbersOnly = True
-    TabOrder = 3
+    TabOrder = 1
     OnExit = DbeJurosPagosExit
   end
   object ActionList: TActionList

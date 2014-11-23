@@ -100,6 +100,8 @@ type
     CbPagamento: TCheckBox;
     RgStatus: TRadioGroup;
     EdValorInicio: TEdit;
+    AcReports: TAction;
+    ToolButton9: TToolButton;
     procedure AcExitExecute(Sender: TObject);
     procedure AcCreateClientExecute(Sender: TObject);
     procedure AcEditClientExecute(Sender: TObject);
@@ -111,6 +113,7 @@ type
     procedure AcBuscarExecute(Sender: TObject);
     procedure CbEmissaoClick(Sender: TObject);
     procedure CbPagamentoClick(Sender: TObject);
+    procedure AcReportsExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -122,7 +125,7 @@ var
 
 implementation
 
-uses Modulo, Cliente, Banco, Cheque;
+uses Modulo, Cliente, Banco, Cheque, DlgReports;
 
 {$R *.dfm}
 
@@ -355,6 +358,12 @@ begin
     ShowModal;
   end;
 
+end;
+
+procedure TFmPrinc.AcReportsExecute(Sender: TObject);
+begin
+  FmReports := TFmReports.Create(Self);
+  FmReports.ShowModal;
 end;
 
 procedure TFmPrinc.CbEmissaoClick(Sender: TObject);

@@ -793,7 +793,7 @@ object FmRelChequesPagamentos: TFmRelChequesPagamentos
       Width = 718
       Height = 20
       Frame.Color = clBlack
-      Frame.DrawTop = False
+      Frame.DrawTop = True
       Frame.DrawBottom = False
       Frame.DrawLeft = False
       Frame.DrawRight = False
@@ -900,7 +900,7 @@ object FmRelChequesPagamentos: TFmRelChequesPagamentos
       Width = 718
       Height = 20
       Frame.Color = clBlack
-      Frame.DrawTop = False
+      Frame.DrawTop = True
       Frame.DrawBottom = False
       Frame.DrawLeft = False
       Frame.DrawRight = False

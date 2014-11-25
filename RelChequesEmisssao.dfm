@@ -768,13 +768,13 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       Width = 718
       Height = 20
       Frame.Color = clBlack
-      Frame.DrawTop = False
+      Frame.DrawTop = True
       Frame.DrawBottom = False
       Frame.DrawLeft = False
       Frame.DrawRight = False
       AlignToBottom = False
       BeforePrint = QrgDataBeforePrint
-      Color = clMenu
+      Color = clWhite
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -825,7 +825,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       Width = 718
       Height = 20
       Frame.Color = clBlack
-      Frame.DrawTop = False
+      Frame.DrawTop = True
       Frame.DrawBottom = False
       Frame.DrawLeft = False
       Frame.DrawRight = False

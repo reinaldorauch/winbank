@@ -14,7 +14,8 @@ uses
   RelBancos in 'RelBancos.pas' {FmRelBancos},
   RelClientes in 'RelClientes.pas' {FmRelClientes},
   RelChequesEmisssao in 'RelChequesEmisssao.pas' {FmRelChequesEmissao},
-  RelChequesPagamentos in 'RelChequesPagamentos.pas' {FmRelChequesPagamentos};
+  RelChequesPagamentos in 'RelChequesPagamentos.pas' {FmRelChequesPagamentos},
+  RelChequesAbertos in 'RelChequesAbertos.pas' {FmRelChequesAbertos};
 
 {$R *.res}
 

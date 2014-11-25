@@ -33,6 +33,7 @@ type
     procedure AcCloseExecute(Sender: TObject);
     procedure InvokeChequesEmissao;
     procedure InvokeChequesPagamentos;
+    procedure InvokeChequesAbertos;
   private
     { Private declarations }
   public
@@ -44,7 +45,8 @@ var
 
 implementation
 
-uses RelBancos, RelClientes, RelChequesEmisssao, RelChequesPagamentos;
+uses RelBancos, RelClientes, RelChequesEmisssao, RelChequesPagamentos,
+  RelChequesAbertos;
 
 {$R *.dfm}
 
@@ -71,6 +73,17 @@ begin
   with FmRelBancos do
   begin
     QrBancos.Preview;
+    Free;
+  end;
+end;
+
+procedure TFmReports.InvokeChequesAbertos;
+begin
+  FmRelChequesAbertos :=  TFmRelChequesAbertos.Create(Self);
+
+  with FmRelChequesAbertos do
+  begin
+    QrChequesAbertos.Preview;
     Free;
   end;
 end;
@@ -120,6 +133,7 @@ begin
     1: InvokeClientes;
     2: InvokeChequesEmissao;
     3: InvokeChequesPagamentos;
+    4: InvokeChequesAbertos;
   end;
 end;
 

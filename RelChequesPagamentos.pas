@@ -157,6 +157,10 @@ begin
   TotalValor      := 0;
   TotalJurosPagos := 0;
   TotalValorPago  := 0;
+
+  with FmReports do
+    QrlPeriodo.Caption := 'Período: ' + DateToStr(DtpInicio.Date) +
+      ' a ' + DateToStr(DtpFim.Date);
 end;
 
 procedure TFmRelChequesPagamentos.QrgDataBeforePrint(Sender: TQRCustomBand;

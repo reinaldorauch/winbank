@@ -82,7 +82,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       Left = 38
       Top = 38
       Width = 718
-      Height = 80
+      Height = 115
       Frame.Color = clBlack
       Frame.DrawTop = False
       Frame.DrawBottom = True
@@ -94,14 +94,14 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       ForceNewColumn = False
       ForceNewPage = False
       Size.Values = (
-        211.666666666666700000
+        304.270833333333300000
         1899.708333333333000000)
       PreCaluculateBandHeight = False
       KeepOnOnePage = False
       BandType = rbPageHeader
       object QRLabel1: TQRLabel
         Left = 129
-        Top = 8
+        Top = 0
         Width = 460
         Height = 33
         Frame.Color = clBlack
@@ -112,7 +112,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
         Size.Values = (
           87.312500000000000000
           341.312500000000000000
-          21.166666666666670000
+          0.000000000000000000
           1217.083333333333000000)
         XLColumn = 0
         Alignment = taCenter
@@ -135,7 +135,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       end
       object QrlPeriodo: TQRLabel
         Left = 673
-        Top = 57
+        Top = 58
         Width = 45
         Height = 17
         Frame.Color = clBlack
@@ -146,7 +146,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
         Size.Values = (
           44.979166666666670000
           1780.645833333333000000
-          150.812500000000000000
+          153.458333333333300000
           119.062500000000000000)
         XLColumn = 0
         Alignment = taRightJustify
@@ -187,10 +187,262 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
         ExportAs = exptText
         FontSize = 10
       end
+      object QRLabel4: TQRLabel
+        Left = 0
+        Top = 94
+        Width = 69
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          0.000000000000000000
+          248.708333333333300000
+          182.562500000000000000)
+        XLColumn = 0
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'D. Emiss'#227'o'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FontSize = 10
+      end
+      object QRLabel5: TQRLabel
+        Left = 75
+        Top = 94
+        Width = 97
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          198.437500000000000000
+          248.708333333333300000
+          256.645833333333300000)
+        XLColumn = 0
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'Nome do Cliente'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FontSize = 10
+      end
+      object QRLabel6: TQRLabel
+        Left = 191
+        Top = 94
+        Width = 64
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          505.354166666666700000
+          248.708333333333300000
+          169.333333333333300000)
+        XLColumn = 0
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'CPF/CNPJ'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FontSize = 10
+      end
+      object QRLabel2: TQRLabel
+        Left = 285
+        Top = 94
+        Width = 38
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          754.062500000000000000
+          248.708333333333300000
+          100.541666666666700000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'Banco'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FontSize = 10
+      end
+      object QRLabel3: TQRLabel
+        Left = 341
+        Top = 94
+        Width = 48
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          902.229166666666700000
+          248.708333333333300000
+          127.000000000000000000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'Ag'#234'ncia'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FontSize = 10
+      end
+      object QRLabel7: TQRLabel
+        Left = 420
+        Top = 92
+        Width = 35
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          1111.250000000000000000
+          243.416666666666700000
+          92.604166666666670000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'Conta'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FontSize = 10
+      end
+      object QRLabel8: TQRLabel
+        Left = 506
+        Top = 94
+        Width = 15
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          1338.791666666667000000
+          248.708333333333300000
+          39.687500000000000000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'N'#186
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FontSize = 10
+      end
+      object QRLabel9: TQRLabel
+        Left = 550
+        Top = 94
+        Width = 37
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          1455.208333333333000000
+          248.708333333333300000
+          97.895833333333330000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'Al'#237'nea'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FontSize = 10
+      end
+      object QRLabel10: TQRLabel
+        Left = 688
+        Top = 94
+        Width = 31
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          1820.333333333333000000
+          248.708333333333300000
+          82.020833333333330000)
+        XLColumn = 0
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'Valor'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FontSize = 10
+      end
     end
     object QrbSummary: TQRBand
       Left = 38
-      Top = 178
+      Top = 213
       Width = 718
       Height = 20
       Frame.Color = clBlack
@@ -211,9 +463,9 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       KeepOnOnePage = False
       BandType = rbSummary
       object QrlTotal: TQRLabel
-        Left = 464
+        Left = 527
         Top = 1
-        Width = 125
+        Width = 191
         Height = 17
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -222,9 +474,9 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          1227.666666666667000000
+          1394.354166666667000000
           2.645833333333333000
-          330.729166666666700000)
+          505.354166666666700000)
         XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
@@ -241,7 +493,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
     end
     object QrbDetail: TQRBand
       Left = 38
-      Top = 138
+      Top = 173
       Width = 718
       Height = 20
       Frame.Color = clBlack
@@ -262,9 +514,9 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       KeepOnOnePage = False
       BandType = rbDetail
       object QRDBText2: TQRDBText
-        Left = 129
+        Left = 75
         Top = 1
-        Width = 40
+        Width = 110
         Height = 17
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -273,27 +525,27 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          341.312500000000000000
+          198.437500000000000000
           2.645833333333333000
-          105.833333333333300000)
+          291.041666666666700000)
         XLColumn = 0
         Alignment = taLeftJustify
         AlignToBand = False
-        AutoSize = True
+        AutoSize = False
         AutoStretch = False
         Color = clWhite
         DataSet = IbqChequeEmissao
         DataField = 'NOME'
         Transparent = False
-        WordWrap = True
+        WordWrap = False
         ExportAs = exptText
-        WrapStyle = BreakOnSpaces
+        WrapStyle = BreakAnywhere
         FullJustify = False
         MaxBreakChars = 0
         FontSize = 10
       end
       object QRDBText3: TQRDBText
-        Left = 464
+        Left = 593
         Top = 1
         Width = 125
         Height = 17
@@ -304,7 +556,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          1227.666666666667000000
+          1568.979166666667000000
           2.645833333333333000
           330.729166666666700000)
         XLColumn = 0
@@ -323,10 +575,196 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
         MaxBreakChars = 0
         FontSize = 10
       end
+      object QRDBText4: TQRDBText
+        Left = 191
+        Top = 1
+        Width = 34
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          505.354166666666700000
+          2.645833333333333000
+          89.958333333333330000)
+        XLColumn = 0
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Color = clWhite
+        DataSet = IbqChequeEmissao
+        DataField = 'CNPJ'
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
+        FontSize = 10
+      end
+      object QRDBText9: TQRDBText
+        Left = 527
+        Top = 1
+        Width = 60
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          1394.354166666667000000
+          2.645833333333333000
+          158.750000000000000000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        AutoStretch = False
+        Color = clWhite
+        DataSet = IbqChequeEmissao
+        DataField = 'ALINEA'
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
+        FontSize = 10
+      end
+      object QRDBText10: TQRDBText
+        Left = 263
+        Top = 1
+        Width = 60
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          695.854166666666700000
+          2.645833333333333000
+          158.750000000000000000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        AutoStretch = False
+        Color = clWhite
+        DataSet = IbqChequeEmissao
+        DataField = 'BANCO'
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
+        FontSize = 10
+      end
+      object QRDBText11: TQRDBText
+        Left = 329
+        Top = 1
+        Width = 60
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          870.479166666666700000
+          2.645833333333333000
+          158.750000000000000000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        AutoStretch = False
+        Color = clWhite
+        DataSet = IbqChequeEmissao
+        DataField = 'AGENCIA'
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
+        FontSize = 10
+      end
+      object QRDBText12: TQRDBText
+        Left = 395
+        Top = 1
+        Width = 60
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          1045.104166666667000000
+          2.645833333333333000
+          158.750000000000000000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        AutoStretch = False
+        Color = clWhite
+        DataSet = IbqChequeEmissao
+        DataField = 'CONTA'
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
+        FontSize = 10
+      end
+      object QRDBText13: TQRDBText
+        Left = 461
+        Top = 1
+        Width = 60
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.979166666666670000
+          1219.729166666667000000
+          2.645833333333333000
+          158.750000000000000000)
+        XLColumn = 0
+        Alignment = taRightJustify
+        AlignToBand = False
+        AutoSize = False
+        AutoStretch = False
+        Color = clWhite
+        DataSet = IbqChequeEmissao
+        DataField = 'NUMERO'
+        Transparent = False
+        WordWrap = True
+        ExportAs = exptText
+        WrapStyle = BreakOnSpaces
+        FullJustify = False
+        MaxBreakChars = 0
+        FontSize = 10
+      end
     end
     object QrgData: TQRGroup
       Left = 38
-      Top = 118
+      Top = 153
       Width = 718
       Height = 20
       Frame.Color = clBlack
@@ -336,7 +774,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       Frame.DrawRight = False
       AlignToBottom = False
       BeforePrint = QrgDataBeforePrint
-      Color = clWhite
+      Color = clMenu
       TransparentBand = False
       ForceNewColumn = False
       ForceNewPage = False
@@ -350,7 +788,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       Master = QrChequesEmissao
       ReprintOnNewPage = False
       object QRDBText1: TQRDBText
-        Left = 39
+        Left = 0
         Top = 1
         Width = 61
         Height = 17
@@ -361,7 +799,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          103.187500000000000000
+          0.000000000000000000
           2.645833333333333000
           161.395833333333300000)
         XLColumn = 0
@@ -383,7 +821,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
     end
     object QrbRodapeGroup: TQRBand
       Left = 38
-      Top = 158
+      Top = 193
       Width = 718
       Height = 20
       Frame.Color = clBlack
@@ -404,9 +842,9 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       KeepOnOnePage = False
       BandType = rbGroupFooter
       object QrlTotalDia: TQRLabel
-        Left = 464
+        Left = 527
         Top = 1
-        Width = 125
+        Width = 191
         Height = 17
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -415,9 +853,9 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
         Frame.DrawRight = False
         Size.Values = (
           44.979166666666670000
-          1227.666666666667000000
+          1394.354166666667000000
           2.645833333333333000
-          330.729166666666700000)
+          505.354166666666700000)
         XLColumn = 0
         Alignment = taRightJustify
         AlignToBand = False
@@ -455,7 +893,7 @@ object FmRelChequesEmissao: TFmRelChequesEmissao
       'WHERE'
       #9'c.emissao BETWEEN :st AND :ed'
       'ORDER BY c.emissao;')
-    Left = 392
+    Left = 393
     Top = 280
     ParamData = <
       item

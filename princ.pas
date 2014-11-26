@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, Menus, ComCtrls, ToolWin, ActnList, ImgList, Grids, DBGrids, StdCtrls,
-  DBCtrls, Mask, ExtCtrls;
+  DBCtrls, Mask, ExtCtrls, DateUtils;
 
 type
   TFmPrinc = class(TForm)
@@ -102,6 +102,10 @@ type
     EdValorInicio: TEdit;
     AcReports: TAction;
     ToolButton9: TToolButton;
+    ToolButton10: TToolButton;
+    AcCalcAtraso: TAction;
+    AcFormatClientNames: TAction;
+    ToolButton11: TToolButton;
     procedure AcExitExecute(Sender: TObject);
     procedure AcCreateClientExecute(Sender: TObject);
     procedure AcEditClientExecute(Sender: TObject);
@@ -114,6 +118,9 @@ type
     procedure CbEmissaoClick(Sender: TObject);
     procedure CbPagamentoClick(Sender: TObject);
     procedure AcReportsExecute(Sender: TObject);
+    procedure AcCalcAtrasoExecute(Sender: TObject);
+    procedure AcFormatClientNamesExecute(Sender: TObject);
+    function FirstUpperCase(Str: String): String;
   private
     { Private declarations }
   public
@@ -125,7 +132,7 @@ var
 
 implementation
 
-uses Modulo, Cliente, Banco, Cheque, DlgReports;
+uses Modulo, Cliente, Banco, Cheque, DlgReports, MesesAtraso;
 
 {$R *.dfm}
 
@@ -253,6 +260,18 @@ begin
   end;
 end;
 
+procedure TFmPrinc.AcCalcAtrasoExecute(Sender: TObject);
+begin
+  FmMesesAtraso := TFmMesesAtraso.Create(Self);
+
+  with FmMesesAtraso do
+  begin
+    Caption := 'Calcular a diferença em meses';
+    ShowModal;
+  end;
+
+end;
+
 procedure TFmPrinc.AcCreateBankExecute(Sender: TObject);
 begin
   FmBancos := TFmBancos.Create(Self);
@@ -346,6 +365,22 @@ begin
   Close;
 end;
 
+procedure TFmPrinc.AcFormatClientNamesExecute(Sender: TObject);
+begin
+  with DmWinBank, IbtClientes do
+  begin
+    First;
+
+    while (NOT Eof) do
+      begin
+        Edit;
+        IbtClientesNOME.Value := FirstUpperCase(IbtClientesNOME.Value);
+        Post;
+        Next;
+      end;
+  end;
+end;
+
 procedure TFmPrinc.AcOpenChequesExecute(Sender: TObject);
 begin
 
@@ -376,6 +411,20 @@ procedure TFmPrinc.CbPagamentoClick(Sender: TObject);
 begin
   DtpDPagInicio.Enabled := CbPagamento.Checked;
   DtpDPagFim.Enabled := CbPagamento.Checked;
+end;
+
+function TFmPrinc.FirstUpperCase(Str: String): String;
+var
+  i: Integer;
+  Letter: String;
+begin
+    Str := LowerCase(Str);
+    for i := 0 to Length(Str) - 1 do
+      if (I = 1) OR (Str[I - 1] = ' ') then
+      begin
+          Str[i] := UpCase(Str[i]);
+      end;
+    Result := Str;
 end;
 
 end.

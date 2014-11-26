@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, DBCtrls, Grids, DBGrids, ImgList, ActnList, Menus, ToolWin, ComCtrls;
+  Dialogs, DBCtrls, Grids, DBGrids, ImgList, ActnList, Menus, ToolWin, ComCtrls,
+  DateUtils;
 
 type
   TFmCheques = class(TForm)
@@ -47,6 +48,7 @@ type
     procedure AcQuitarExecute(Sender: TObject);
     procedure AcEstornarExecute(Sender: TObject);
     procedure AcQuitarUpdateExecute(Sender: TObject);
+    procedure WriteExtornoOperationLog;
   private
     { Private declarations }
   public
@@ -127,6 +129,7 @@ begin
             IbtChequesJUROSPAGOS.AsString := '';
             try
               IbtCheques.Post;
+              WriteExtornoOperationLog;
             except
               on E: Exception do
               begin
@@ -172,6 +175,38 @@ end;
 procedure TFmCheques.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := caFree;
+end;
+
+procedure TFmCheques.WriteExtornoOperationLog;
+var
+  Log : TextFile;
+  Agora: TDateTime;
+  FileName, Line: String;
+begin
+  // Gravar no arquivo
+  FileName := 'LogEstorno.txt';
+
+  AssignFile(Log, FileName);
+
+  if(NOT FileExists(FileName)) then
+    FileCreate(FileName);
+
+  Reset(Log);
+  Append(log);
+
+  Agora := Now();
+  with DmWinBank do
+    Line := Format('[%s] %s,%d,%d,%d,%d',
+      [FormatDateTime('yyyy-mm-dd hh:nn:ss', Agora),
+      IbtChequesCNPJ.Value,
+      IbtChequesBANCO.Value,
+      IbtChequesAGENCIA.Value,
+      IbtChequesCONTA.Value,
+      IbtChequesNUMERO.Value]
+    );
+  Writeln(Log, Line);
+
+  CloseFile(log);
 end;
 
 end.

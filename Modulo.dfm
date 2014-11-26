@@ -22,6 +22,7 @@ object DmWinBank: TDmWinBank
   object IbtClientes: TIBTable
     Database = IdbWinbank
     Transaction = IbtWbTrans
+    OnCalcFields = IbtClientesCalcFields
     Active = True
     FieldDefs = <
       item
@@ -78,6 +79,16 @@ object DmWinBank: TDmWinBank
     end
     object IbtClientesDTULTALT: TDateField
       FieldName = 'DTULTALT'
+    end
+    object IbtClientesNomePrimeiraParte: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'NomePrimeiraParte'
+      Calculated = True
+    end
+    object IbtClientesNomeSobrenome: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'NomeSobrenome'
+      Calculated = True
     end
   end
   object DsClientes: TDataSource
